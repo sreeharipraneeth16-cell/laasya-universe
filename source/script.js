@@ -503,16 +503,18 @@ gl_FragColor=vec4(col,1.);
       }, 170);
     };
 
-    stars.forEach((s, i) => s.addEventListener('click', () => select(i)));
+    let userTouched = false;
+    stars.forEach((s, i) => s.addEventListener('click', () => {
+      userTouched = true;
+      select(i);
+    }));
     window.addEventListener('resize', drawLines);
     if ('ResizeObserver' in window) new ResizeObserver(drawLines).observe(map);
     window.setTimeout(drawLines, 60);
 
     if (!reduced) {
-      let touched = false;
-      stars.forEach((s) => s.addEventListener('pointerdown', () => { touched = true; }));
       window.setInterval(() => {
-        if (touched) return;
+        if (userTouched || document.hidden) return;
         select((current + 1) % reasons.length);
       }, 6000);
     }
