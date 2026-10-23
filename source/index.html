@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laasya — a universe, just for you</title>
+  <meta name="description" content="Seven stars, one letter, and a question. Made for Laasya." />
+  <meta name="theme-color" content="#07060d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-loading">
+  <a class="skip" href="#reasons">skip to the good part</a>
+
+  <div class="boot" id="boot">
+    <div class="boot__inner">
+      <div class="boot__mark">L</div>
+      <p class="boot__label">assembling a small universe</p>
+      <div class="boot__track"><span class="boot__bar" id="bootBar"></span></div>
+      <p class="boot__pct" id="bootPct">0%</p>
+    </div>
+  </div>
+
+  <canvas class="nebula" id="nebula" aria-hidden="true"></canvas>
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__dot"></span>
+    <span class="cursor__ring"></span>
+  </div>
+
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#hero" aria-label="Back to the top">
+      <span class="brand__mark">L</span>
+      <span class="brand__text">for laasya</span>
+    </a>
+    <button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Turn ambient sound on">
+      <span class="sound__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="sound__label" id="soundLabel">sound off</span>
+    </button>
+  </header>
+
+  <nav class="dots" aria-label="Chapters">
+    <a href="#hero" data-dot="hero"><span>opening</span></a>
+    <a href="#reasons" data-dot="reasons"><span>reasons</span></a>
+    <a href="#moments" data-dot="moments"><span>moments</span></a>
+    <a href="#letter" data-dot="letter"><span>the letter</span></a>
+    <a href="#question" data-dot="question"><span>the question</span></a>
+  </nav>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="hero__grid">
+        <div class="hero__copy" id="heroCopy">
+          <p class="kicker">a small universe · made for one person</p>
+          <h1 class="hero__name" aria-label="Laasya"><span aria-hidden="true" data-split>Laasya</span></h1>
+          <p class="hero__tagline">Some people get poems. <em>You get a whole sky.</em></p>
+          <p class="hero__sub">Seven stars for seven reasons, a letter in the middle, and one question at the end.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary magnetic" href="#reasons">start with the stars <span aria-hidden="true">✦</span></a>
+            <a class="btn btn--quiet" href="#question">or skip to the question <span aria-hidden="true">💍</span></a>
+          </div>
+        </div>
+
+        <div class="hero__orb-wrap">
+          <div class="orb" id="orb">
+            <div class="orb__halo" aria-hidden="true"></div>
+            <div class="orb__ring orb__ring--1" aria-hidden="true"></div>
+            <div class="orb__ring orb__ring--2" aria-hidden="true"></div>
+            <div class="orb__ring orb__ring--3" aria-hidden="true"></div>
+            <figure class="orb__photo">
+              <img src="../assets/best-moment.jpg" alt="Laasya" />
+            </figure>
+            <span class="orb__spark orb__spark--1" aria-hidden="true">✦</span>
+            <span class="orb__spark orb__spark--2" aria-hidden="true">✧</span>
+            <span class="orb__spark orb__spark--3" aria-hidden="true">✦</span>
+          </div>
+          <p class="orb__caption">the centre of it all <span aria-hidden="true">💗</span></p>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#reasons" aria-label="Scroll to chapter one">
+        <span>scroll to begin</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>laasya <b>✦</b> my favourite person <b>✦</b> laasya <b>✦</b> my favourite person <b>✦</b> laasya <b>✦</b> my favourite person <b>✦</b> </span>
+        <span>laasya <b>✦</b> my favourite person <b>✦</b> laasya <b>✦</b> my favourite person <b>✦</b> laasya <b>✦</b> my favourite person <b>✦</b> </span>
+      </div>
+    </div>
+
+    <section class="section reasons" id="reasons">
+      <header class="section__head">
+        <p class="kicker reveal">chapter one</p>
+        <h2 class="h2 reveal">The constellation <em>of you</em></h2>
+        <p class="lede reveal">Seven stars. Tap one. They're all the same reason, really.</p>
+      </header>
+
+      <div class="starmap reveal" id="starmap">
+        <svg class="starmap__lines" id="starmapLines" aria-hidden="true"></svg>
+        <button class="star is-active" type="button" style="--x:11%;--y:66%" data-reason="0" aria-pressed="true" aria-label="Your laugh">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your laugh <span aria-hidden="true">😂</span></span>
+        </button>
+        <button class="star" type="button" style="--x:26%;--y:28%" data-reason="1" aria-pressed="false" aria-label="Your kindness">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your kindness <span aria-hidden="true">🌷</span></span>
+        </button>
+        <button class="star" type="button" style="--x:42%;--y:56%" data-reason="2" aria-pressed="false" aria-label="Your mind">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your mind <span aria-hidden="true">🧠</span></span>
+        </button>
+        <button class="star" type="button" style="--x:56%;--y:20%" data-reason="3" aria-pressed="false" aria-label="Your courage">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your courage <span aria-hidden="true">🔥</span></span>
+        </button>
+        <button class="star" type="button" style="--x:69%;--y:62%" data-reason="4" aria-pressed="false" aria-label="Your voice">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your voice <span aria-hidden="true">🎧</span></span>
+        </button>
+        <button class="star" type="button" style="--x:82%;--y:32%" data-reason="5" aria-pressed="false" aria-label="Your softness">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your softness <span aria-hidden="true">🫶</span></span>
+        </button>
+        <button class="star" type="button" style="--x:90%;--y:74%" data-reason="6" aria-pressed="false" aria-label="Your everything">
+          <span class="star__dot" aria-hidden="true"></span><span class="star__label" aria-hidden="true">your everything <span aria-hidden="true">💫</span></span>
+        </button>
+      </div>
+
+      <article class="reason-card reveal" id="reasonCard" aria-live="polite">
+        <div class="reason-card__num" id="reasonNum">01</div>
+        <div class="reason-card__body">
+          <h3 id="reasonTitle">Your laugh</h3>
+          <p id="reasonText">It arrives a second before the joke lands, and it turns ordinary rooms into somewhere I want to stay.</p>
+        </div>
+        <div class="reason-card__foot">
+          <span id="reasonHint">tap another star</span>
+          <div class="reason-card__dots" id="reasonDots" aria-hidden="true"></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="moments" id="moments">
+      <div class="moments__pin">
+        <div class="moments__head">
+          <p class="kicker">chapter two</p>
+          <h2 class="h2">Us, <em>in motion</em></h2>
+        </div>
+        <div class="moments__track" id="momentsTrack">
+          <article class="moment" style="--accent:#ff7aa8">
+            <span class="moment__num" aria-hidden="true">01</span>
+            <div><div class="moment__glyph" aria-hidden="true">🌱</div><h3>the first hello</h3><p>I didn't know it yet, but my whole timeline quietly changed direction that day.</p></div>
+            <span class="moment__tag">where it started</span>
+          </article>
+          <article class="moment" style="--accent:#b79cff">
+            <span class="moment__num" aria-hidden="true">02</span>
+            <div><div class="moment__glyph" aria-hidden="true">🌙</div><h3>the 3 a.m. talks</h3><p>Somehow the conversations got better when the rest of the world went quiet.</p></div>
+            <span class="moment__tag">my favourite hours</span>
+          </article>
+          <article class="moment" style="--accent:#e8c589">
+            <span class="moment__num" aria-hidden="true">03</span>
+            <div><div class="moment__glyph" aria-hidden="true">☕</div><h3>the ordinary Tuesdays</h3><p>Grocery lists, bad TV, comfortable silences. My favourite kind of magic.</p></div>
+            <span class="moment__tag">no occasion needed</span>
+          </article>
+          <article class="moment" style="--accent:#8fe3c0">
+            <span class="moment__num" aria-hidden="true">04</span>
+            <div><div class="moment__glyph" aria-hidden="true">🏡</div><h3>the someday</h3><p>A kitchen, a dog, your laugh in the next room. I can see it. I want it.</p></div>
+            <span class="moment__tag">a quiet plan</span>
+          </article>
+          <article class="moment" style="--accent:#ff9dbb">
+            <span class="moment__num" aria-hidden="true">05</span>
+            <div><div class="moment__glyph" aria-hidden="true">💫</div><h3>right now</h3><p>Still choosing you. On purpose. Every single day, including this one.</p></div>
+            <span class="moment__tag">where we are</span>
+          </article>
+        </div>
+        <p class="moments__hint">keep scrolling <span aria-hidden="true">→</span></p>
+      </div>
+    </section>
+
+    <section class="section letter" id="letter">
+      <header class="section__head letter__head">
+        <p class="kicker reveal">chapter three</p>
+        <h2 class="h2 reveal">A letter, <em>sealed</em></h2>
+        <p class="lede reveal">Some things shouldn't be typed. But here we are.</p>
+      </header>
+
+      <div class="letter__stage">
+        <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="letterPaper">
+          <span class="envelope__flap" aria-hidden="true"></span>
+          <span class="envelope__body" aria-hidden="true">
+            <span class="envelope__to">to: laasya</span>
+            <span class="envelope__from">from: me, obviously</span>
+          </span>
+          <span class="envelope__seal" aria-hidden="true">💗</span>
+          <span class="envelope__hint" id="envHint">tap to open</span>
+        </button>
+
+        <article class="paper" id="letterPaper" aria-hidden="true">
+          <div class="paper__inner">
+            <p class="paper__date">somewhere between midnight and forever</p>
+            <h3 class="paper__salutation">Laasya,</h3>
+            <p>I've tried to write this so it sounds calm. It doesn't. So here it is, plain: <em>you are my favourite part of every day.</em></p>
+            <p>Not the big cinematic parts — the small ones. The text I wait for. The story you tell twice because I asked. The way you say my name when you're tired.</p>
+            <p>I don't want to impress you with a website. I want to be the person who makes your ordinary days easier, for as long as you'll let me.</p>
+            <p>So this is me, asking. With stars, because apparently subtlety left the chat. 💫</p>
+            <div class="paper__sign">
+              <span>always yours,</span>
+              <span class="paper__signature">me 💗</span>
+            </div>
+            <figure class="paper__photo">
+              <img src="../assets/best-moment.jpg" alt="Laasya" />
+              <figcaption>my favourite face 💗</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ask" id="question">
+      <div class="ask__inner">
+        <p class="kicker reveal">chapter four · one question</p>
+        <h2 class="ask__title reveal">Laasya,</h2>
+        <p class="ask__big reveal">will you be mine? <span aria-hidden="true">💍</span></p>
+        <p class="ask__sub reveal">No website required. But I made one anyway.</p>
+        <div class="ask__buttons reveal">
+          <button class="btn btn--yes magnetic" id="yesBtn" type="button">yes <span aria-hidden="true">💗</span></button>
+          <button class="btn btn--no" id="noBtn" type="button">no</button>
+        </div>
+        <p class="ask__hint" id="askHint">(the no button is a little shy)</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>for Laasya <span aria-hidden="true">💞</span> always</p>
+    <p class="footer__small">made with a dangerous amount of love and a little JavaScript</p>
+  </footer>
+
+  <div class="said" id="said" role="dialog" aria-modal="true" aria-labelledby="saidTitle" aria-hidden="true">
+    <div class="said__card">
+      <div class="said__burst" aria-hidden="true">💗</div>
+      <p class="kicker">the best answer</p>
+      <h2 class="said__title" id="saidTitle">She said <em>yes</em>.</h2>
+      <p class="said__sub">Best thing I've ever heard. I love you, Laasya. <span aria-hidden="true">💗</span></p>
+      <div class="said__actions">
+        <button class="btn btn--primary magnetic" id="certBtn" type="button">download our certificate <span aria-hidden="true">🎟️</span></button>
+        <button class="btn btn--quiet" id="replayBtn" type="button">watch it again <span aria-hidden="true">↺</span></button>
+      </div>
+      <p class="said__small">no refunds. no take-backs. just us. <span aria-hidden="true">😌</span></p>
+    </div>
+  </div>
+  <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
